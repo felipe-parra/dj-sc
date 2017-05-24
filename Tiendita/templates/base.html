@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	{% load staticfiles %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block page_title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body class="container">
+	<header class="jumbotron">
+		<h1>
+			<a href="/">Tienda</a>
+		</h1>
+
+	</header>
+	<section>
+		{% block login_content %}{% endblock %}
+	</section><br>
+	<A HREF="{% url 'products.views.nuevo_producto' %}" class="btn btn-primary btn-lg">Nuevo Producto</A>
+	<section class="container">
+		{% block content %}
+		{% endblock %}
+	</section>
+	<br><br>
+	<p class="well">Signed in as <a href="#" class="navbar-link">Felipe Parra</a></p>
+
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

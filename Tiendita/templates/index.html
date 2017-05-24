@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	{{ title }}
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+	<h1>Lista de Productos
+{% if product %}
+	
+	<small class="label label-default">Si hay productos</small>
+	</h1>
+	</section>
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Picture</th>
+		</tr>
+		</thead>
+		{% for pr in product %}
+		<tr>
+			<td> <a href="{% url 'products.views.producto_detalle' pk=pr.pk %}">{{ pr.name }}</a>
+			</td>
+			<td>{{ pr.price }}</td>
+			<td>
+				{% if pr.imagen %}
+				<img style="max-width:100px;" src="{{ pr.imagen.url }}" class="img-thumbnail" alt="Responsive image" />
+				{% else %}
+				<img src="#" class="img-thumbnail" alt="NO IMAGE">
+			{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	
+
+	</table>
+			
+<!-- {% if pr.imagen %}
+			<img src="{{ pr.imagen.url }}" class="img-thumbnail media-rigth" alt="Responsive image" />
+			{% endif %} -->
+		
+{% else %}
+		<small>No hay productos aun</small></h1>
+	</section>
+{% endif %}
+{% endblock %}

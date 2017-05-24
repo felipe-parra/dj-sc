@@ -1,0 +1,6 @@
+.jumbotron h1 a{
+	text-decoration: none;
+}
+.img-thumbnail {
+	max-width: 140px;
+}
